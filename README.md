@@ -31,13 +31,13 @@ Set the GraphQL endpoint, upload URL, package identifiers, app version, and loca
 
 ### 3) Add platform configuration
 
-The following files are required for Firebase-enabled builds but are intentionally not stored in Git:
+The following files are required for Firebase-enabled builds and are stored in this private repository:
 
 - `android/app/google-services.json`
 - `ios/Runner/GoogleService-Info.plist`
 - `ios/firebase_app_id_file.json`
 
-Obtain these files through the team’s secure configuration process. Android and iOS signing files and provisioning profiles must also be configured locally.
+Android and iOS signing files and provisioning profiles are also stored in the private repository so another authorized developer can produce release builds. Restrict repository access and rotate credentials when team access changes.
 
 ### 4) Run the application
 
@@ -71,7 +71,7 @@ flutter test
 
 ## Sensitive files
 
-Environment files, Firebase configuration, signing keys, certificates, provisioning profiles, and local build output are ignored by Git. Never commit credentials or production configuration.
+This private repository includes the environment file, Firebase configuration, signing keys, certificates, and provisioning profiles required for release builds. Keep repository access restricted; local build output and generated tooling remain ignored.
 
 ## License
 

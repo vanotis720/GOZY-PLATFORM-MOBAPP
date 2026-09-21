@@ -18,13 +18,19 @@ customization/.dart_tool/
 .env
 .env.*
 !.env.example
+!.env
 android/key.properties
 ios/Flutter/AppEnvConfig.xcconfig
+!android/key.properties
+!ios/Flutter/AppEnvConfig.xcconfig
 
 # Firebase application configuration
 android/app/google-services.json
 ios/Runner/GoogleService-Info.plist
 ios/firebase_app_id_file.json
+!android/app/google-services.json
+!ios/Runner/GoogleService-Info.plist
+!ios/firebase_app_id_file.json
 
 # Signing credentials and provisioning files
 *.jks
@@ -35,6 +41,11 @@ Apple Certificates/*
 !Apple Certificates/README.md
 Keystore/*
 !Keystore/README.md
+!Apple Certificates/*.cer
+!Apple Certificates/*.p12
+!Apple Certificates/*.mobileprovision
+!Keystore/*.jks
+!android/app/*.jks
 
 # CocoaPods generated files
 ios/Pods/

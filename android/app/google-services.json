@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1043149604949",
+    "project_id": "gozy-8d3e0",
+    "storage_bucket": "gozy-8d3e0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1043149604949:android:01efcd4eb29d5bfd88ecdc",
+        "android_client_info": {
+          "package_name": "com.gozy.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1043149604949-0fgna0ee9rt0qe44r6dfa0aedsu2svri.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBII_wKGUBy5_65y-bAuAsl8he6aZ_83g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1043149604949-0fgna0ee9rt0qe44r6dfa0aedsu2svri.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1043149604949-86lc91uqlppnt8vrockjeb595ghnp3ah.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.gozy.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

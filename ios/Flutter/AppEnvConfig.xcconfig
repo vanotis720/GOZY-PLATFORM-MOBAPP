@@ -1,0 +1,14 @@
+#include "Flutter/Generated.xcconfig"
+
+PRODUCT_BUNDLE_IDENTIFIER = $(PACKAGE_NAME)
+APP_NAME = Gozy
+DEEPLINK_DOMAIN = www.gozyapp.com
+GRAPHQL_DOMAIN = https:/$()/www.gozyapp.com/api
+UPLOAD_URL = https:/$()/www.gozyapp.com
+SECURE_API_KEY = JjQI:gHf+^=D
+APP_VERSION = 1.0.1
+BUILD_VERSION = 5
+PACKAGE_NAME = com.gozy.app
+APP_COLOR_SECONDARY = 5e17eb
+
+REVERSE_CLIENT_ID = com.googleusercontent.apps.1043149604949-86lc91uqlppnt8vrockjeb595ghnp3ah
