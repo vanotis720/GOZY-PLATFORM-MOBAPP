@@ -1,0 +1,28 @@
+# import 'package:gozy/graphql/user_profile_fragment.graphql'
+# import 'package:gozy/graphql/base_listing_info_fragment.graphql'
+# import 'package:gozy/graphql/thread_item_fragment.graphql'
+
+fragment allThreadsFragment on Threads {
+     id
+     threadItemsCount
+     hostUnreadCount
+     listId
+     userBanStatus
+     host
+     guest
+     createdAt
+     status
+     isRead
+         listData {
+          ...viewListingShortFragment
+          }
+        threadItem {
+          ...threadItemsFragment
+        }
+        guestProfile {
+       ...userProfileFragment
+        }
+        hostProfile {
+         ...userProfileFragment
+        }
+}

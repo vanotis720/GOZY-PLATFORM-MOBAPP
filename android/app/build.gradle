@@ -1,0 +1,120 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services"
+    id "com.google.firebase.crashlytics"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+
+android {
+    namespace "com.gozy.app"
+    compileSdkVersion 36
+    ndkVersion "29.0.14033849"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_24
+        targetCompatibility JavaVersion.VERSION_24
+        coreLibraryDesugaringEnabled true
+    }
+
+    kotlinOptions {
+        jvmTarget = "24"
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+def secureKey = "JjQI:gHf+^=D"
+    defaultConfig {
+        applicationId "com.gozy.app"
+        minSdkVersion flutter.minSdkVersion
+        targetSdkVersion 36
+		versionCode 5
+        versionName '1.0.1'
+        resValue "string", "SECURE_API_KEY", secureKey
+        ndk {
+            abiFilters 'arm64-v8a', 'armeabi-v7a'
+        }
+        def graphqlQuery = """ {
+                    "query" : "query getSecureSiteSettings(\$type: String, \$securityKey: String!) {getSecureSiteSettings(settingsType: \$type, securityKey: \$securityKey) {results {name value}}}",
+                        "variables": {"securityKey" :"${secureKey}"}
+                }"""
+
+        def req1 = java.net.http.HttpRequest.newBuilder()
+                .uri(URI.create("${getValue("GRAPHQL_DOMAIN")}/graphql"))
+                .header("Content-Type", "application/json; charset=UTF-8")
+                .POST(java.net.http.HttpRequest.BodyPublishers.ofString(graphqlQuery, java.nio.charset.StandardCharsets.UTF_8))
+                .build()
+        def client = java.net.http.HttpClient.newBuilder().build()
+        def response = client
+                .send(req1,  java.net.http.HttpResponse.BodyHandlers.ofString( java.nio.charset.StandardCharsets.UTF_8))
+        def json = new groovy.json.JsonSlurper().parseText(response.body())
+        def jsonArray = json.data.getSecureSiteSettings.results;
+        def filteredUsers = jsonArray.findAll { it.name  == "androidAppMapAPIkey" }
+        manifestPlaceholders["PLACEHOLDER_API_KEY"] =  filteredUsers[0].value
+
+
+    }
+
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                variant.outputs.all { output ->
+                    def apkName = "${getValue("APP_NAME")}_${versionName}.apk"
+                    outputFileName = apkName
+                }
+            }
+        }
+    }
+    android {
+        packagingOptions {
+            jniLibs {
+                useLegacyPackaging = true
+            }
+        }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+def getValue(string) {
+    def stringsFile = android.sourceSets.main.res.sourceFiles.find { it.name.equals 'strings.xml' }
+    return new groovy.xml.XmlParser().parse(stringsFile).string.find { it.@name.equals string }.text()
+}
+
+dependencies {
+    implementation platform('com.google.firebase:firebase-bom:34.2.0')
+    implementation "androidx.core:core-splashscreen:1.2.0-rc01"
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.5'
+}

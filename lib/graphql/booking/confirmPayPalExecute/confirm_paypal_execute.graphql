@@ -1,0 +1,7 @@
+# import 'package:gozy/graphql/reservation_payment_fragment.graphql'
+
+mutation confirmPayPalExecute( $paymentId: String!, $payerId: String!, $isServicePlan: Boolean, $userType: String) {
+    confirmPayPalExecute( paymentId: $paymentId, payerId: $payerId, isServicePlan: $isServicePlan, userType: $userType) {
+     ...reservationPaymentFragment
+    }
+}

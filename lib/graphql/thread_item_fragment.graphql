@@ -1,0 +1,18 @@
+fragment threadItemsFragment on ThreadItems {
+   id
+   threadId
+   reservationId
+   sentBy
+   content
+   type
+   startDate
+   endDate
+   startTime
+   endTime
+   personCapacity
+   isRead
+   createdAt
+   status
+   userBanStatus
+
+}

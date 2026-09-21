@@ -1,0 +1,14 @@
+# import 'package:gozy/graphql/reservation_fragment.graphql'
+
+fragment reservationPaymentFragment on ReservationPayment {
+       results {
+               ...reservationFragment
+           }
+           purchasePlanId
+           redirectUrl
+           status
+           errorMessage
+           requireAdditionalAction
+           paymentIntentSecret
+           reservationId
+}

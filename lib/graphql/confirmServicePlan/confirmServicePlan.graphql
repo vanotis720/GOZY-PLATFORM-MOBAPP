@@ -1,0 +1,12 @@
+mutation confirmPurchaseServicePlan($servicePlanId: Int!, $paymentIntentId: String!
+) {
+    confirmPurchaseServicePlan(servicePlanId: $servicePlanId, paymentIntentId: $paymentIntentId
+    ) {
+        count
+		status
+        errorMessage
+		requireAdditionalAction
+		paymentIntentSecret
+		redirectUrl
+    }
+}

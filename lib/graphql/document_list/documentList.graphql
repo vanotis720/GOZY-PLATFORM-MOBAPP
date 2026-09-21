@@ -1,0 +1,20 @@
+query ShowDocumentList {
+    showDocumentList {
+        results{
+            id
+            userId
+            fileName
+            fileType
+            documentStatus
+        }
+        status
+        errorMessage
+    }
+}
+
+mutation RemoveDocuments($fileName:String) {
+    removeDocuments (fileName:$fileName) {
+        status
+        errorMessage
+    }
+}

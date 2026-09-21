@@ -1,0 +1,43 @@
+#Billing Summary
+query getBillingCalculation($listId: Int!, $startDate: String!, $endDate: String!, $guests: Int!, $convertCurrency: String!, $startTime: Float, $endTime: Float,$isDeliveryIncluded: Boolean, $userId:String, $promoCode: String) {
+     getBillingCalculation(listId: $listId, startDate: $startDate, endDate: $endDate, guests: $guests, convertCurrency: $convertCurrency, startTime: $startTime, endTime: $endTime,
+        isDeliveryIncluded: $isDeliveryIncluded, userId:$userId, promoCode:$promoCode) {
+       status
+       errorMessage
+       result {
+           checkIn
+           checkOut
+           startTime
+           endTime
+           days
+           basePrice
+           delivery
+           guests
+           specialPricing{
+               blockedDates
+               isSpecialPrice
+               __typename
+           }
+           currency
+           guestServiceFeePercentage
+           hostServiceFeePercentage
+           weeklyDiscountPercentage
+           monthlyDiscountPercentage
+           guestServiceFee
+           hostServiceFee
+           promoDiscount
+           promoId
+           promoCodeDescription
+           discountLabel
+           discount
+           subtotal
+           total
+           availableStatus
+           averagePrice
+           priceForDays
+           isSpecialPriceAssigned
+           securityDeposit
+
+       }
+     }
+ }

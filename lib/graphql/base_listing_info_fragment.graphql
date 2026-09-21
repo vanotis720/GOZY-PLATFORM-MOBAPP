@@ -1,0 +1,112 @@
+fragment viewListingShortFragment on ShowListing {
+    id
+    userId
+    title
+    transmission
+    wishListStatus
+    carType
+    reviewsStarRating
+    reviewsCount
+    bookingType
+    isListOwner
+    coverPhoto
+    lat
+    dynamicListingTitle{
+        language
+        listTitle
+    }
+    dynamicListingDescription{
+        language
+        listDescription
+    }
+    dynamicListTitle {
+        en
+        ar
+        es
+        fr
+        it
+        pt
+    }
+    dynamicListDescription {
+        en
+        ar
+        es
+        fr
+        it
+        pt
+    }
+    dynamicCarType {
+        en
+        ar
+        es
+        fr
+        it
+        pt
+    }
+    dynamicmake {
+        en
+        ar
+        es
+        fr
+        it
+        pt
+    }
+    dynamicModel {
+        en
+        ar
+        es
+        fr
+        it
+        pt
+    }
+    dynamicYear {
+        en
+        ar
+        es
+        fr
+        it
+        pt
+    }
+    dynamicOdometer {
+        en
+        ar
+        es
+        fr
+        it
+        pt
+    }
+    carRules {
+        dynamicItemName {
+            en
+            ar
+            es
+            fr
+            it
+            pt
+        }
+        id
+        itemName
+    }
+    carFeatures {
+        dynamicItemName {
+            en
+            ar
+            es
+            fr
+            it
+            pt
+        }
+        id
+        itemName
+    }
+    lng
+    listPhotoName
+     listPhotos {
+      id
+       name
+       }
+     listingData {
+         basePrice
+         currency
+     }
+}

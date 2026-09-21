@@ -1,0 +1,19 @@
+mutation CreatePurchaseServicePlan($servicePlanId: Int!, $startDate: String!, $endDate: String!, $paymentType: Int, $cardToken: String, $paymentCurrency: String) {
+    createPurchaseServicePlan(
+        servicePlanId: $servicePlanId
+        startDate: $startDate
+        endDate: $endDate
+        paymentType: $paymentType
+        cardToken: $cardToken
+        paymentCurrency: $paymentCurrency
+    ) {
+        status
+        result{
+            id
+        }
+        errorMessage
+        requireAdditionalAction
+        paymentIntentSecret
+        redirectUrl
+    }
+}

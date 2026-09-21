@@ -1,0 +1,6 @@
+mutation cancelPurchasePlan($id: Int!) {
+  cancelPurchasePlan(id: $id) {
+    status
+    errorMessage
+  }
+}

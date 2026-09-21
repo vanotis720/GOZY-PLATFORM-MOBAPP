@@ -1,0 +1,154 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"  android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" tools:node="remove" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" tools:node="remove"/>
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" tools:node="remove" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" tools:node="remove"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" tools:node="remove" />
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="https" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.DIAL" />
+            <data android:scheme="tel" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.SEND" />
+            <data android:mimeType="*/*" />
+        </intent>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+    </queries>
+    <application
+        android:label="@string/APP_NAME"
+        android:icon="@mipmap/ic_launcher"
+        android:requestLegacyExternalStorage="true"
+        android:allowBackup="false"
+        android:windowOptOutEdgeToEdgeEnforcement="true"
+        android:usesCleartextTraffic="true"
+        mapsImplementation.useAndroidViewSurface = "true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:extractNativeLibs="true"
+        android:largeHeap="true"
+        tools:targetApi="m"
+        android:hardwareAccelerated="true"
+        android:roundIcon="@mipmap/ic_launcher_round">
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowOptOutEdgeToEdgeEnforcement="true"
+            android:launchMode="singleTask"
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter android:autoVerify="true"  android:label="@string/APP_NAME" >
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+
+
+                <data
+                    android:host="@string/DEEPLINK_DOMAIN"
+                    android:pathPrefix="/password/verification"
+                    android:scheme="http" />
+                <data
+                    android:host="@string/DEEPLINK_DOMAIN"
+                    android:pathPrefix="/password/verification"
+                    android:scheme="https" />
+                <data
+                    android:host="@string/DEEPLINK_DOMAIN"
+                    android:pathPrefix="/cars"
+                    android:scheme="http" />
+                <data
+                    android:host="@string/DEEPLINK_DOMAIN"
+                    android:pathPrefix="/cars"
+                    android:scheme="https" />
+                <data
+                    android:host="@string/DEEPLINK_DOMAIN"
+                    android:pathPrefix="/user/verification"
+                    android:scheme="http" />
+                <data
+                    android:host="@string/DEEPLINK_DOMAIN"
+                    android:pathPrefix="/user/verification"
+                    android:scheme="https" />
+                <data
+                    android:host="@string/DEEPLINK_DOMAIN"
+                    android:pathPrefix="/message"
+                    android:scheme="http" />
+                <data
+                    android:host="@string/DEEPLINK_DOMAIN"
+                    android:pathPrefix="/message"
+                    android:scheme="https" />
+                <data
+                    android:host="@string/DEEPLINK_DOMAIN"
+                    android:pathPrefix="/review/write"
+                    android:scheme="http" />
+                <data
+                    android:host="@string/DEEPLINK_DOMAIN"
+                    android:pathPrefix="/review/write"
+                    android:scheme="https" />
+
+            </intent-filter>
+
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="FLUTTER_NOTIFICATION_CLICK" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${PLACEHOLDER_API_KEY}"/>
+
+        <meta-data
+            android:name="io.flutter.embedding.android.EnableImpeller"
+            android:value="false" />
+        <meta-data android:name="flutter_deeplinking_enabled" android:value="false" />
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_logo_push" />
+
+        <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="high_importance_channel" />
+
+        <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ActionBroadcastReceiver" />
+
+        <service
+            android:name="com.dexterous.flutterlocalnotifications.ForegroundService"
+            android:exported="false"
+            android:stopWithTask="false"/>
+    </application>
+</manifest>

@@ -1,0 +1,70 @@
+query getListingSettingsCommon($isValue:Boolean){
+getListingSettingsCommon(isValue:$isValue){
+status
+        errorMessage
+results {
+        id
+        typeName
+        typeLabel
+        isEnable
+        count
+        listSettings {
+        id
+        typeId
+        itemName
+            dynamicItemName {
+                ar
+                en
+                es
+                fr
+                it
+                pt
+            }
+        isEnable
+}
+
+}
+}
+
+getSearchSettings {
+results {
+        id
+        minPrice
+        maxPrice
+        priceRangeCurrency
+}
+        status
+        errorMessage
+}
+}
+
+query getListSettingsItemName(
+ $typeName: String,
+ $searchList: String,
+ $currentPage: Int,
+ $makeId:Int
+) {
+ getListSettingsItemName(
+    typeName: $typeName,
+    searchList: $searchList,
+    currentPage: $currentPage,
+    makeId:$makeId
+ ) {
+    status
+    errorMessage
+    count
+    results {
+    id
+    typeId
+    itemName
+    dynamicItemName {
+        ar
+        en
+        es
+        fr
+        it
+        pt
+    }
+    }
+ }
+}

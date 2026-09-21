@@ -1,0 +1,8 @@
+mutation AddPhoneNumber($countryCode: String!, $phoneNumber: String!, $countryName: String) {
+    AddPhoneNumber(countryCode: $countryCode, phoneNumber: $phoneNumber, countryName: $countryName) {
+        status
+        errorMessage
+        phoneNumberStatus
+        verificationCode
+    }
+}

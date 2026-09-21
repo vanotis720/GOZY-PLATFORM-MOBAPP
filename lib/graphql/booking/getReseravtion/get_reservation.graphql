@@ -1,0 +1,28 @@
+# import 'package:gozy/graphql/reservation_fragment.graphql'
+
+# Reservation Details
+query getReservation($reservationId: Int!,$convertCurrency: String) {
+    getReservation(reservationId: $reservationId,convertCurrency: $convertCurrency) {
+    status
+    errorMessage
+    results {
+    ...reservationFragment
+    }
+    convertedSecurityDeposit
+    convertedClaimRefund
+    convertedClaimAmount
+    convertedClaimPayout
+    actualEarnings
+    convertTotalWithoutSecurityDeposit
+    convertedBasePrice
+    convertedHostServiceFee
+    convertedGuestServicefee
+    convertedIsSpecialAverage
+    convertedTotalDaysAmount
+    convertedClaimAmount
+    convertTotalWithGuestServiceFee
+    convertedDeliveryPrice
+    convertedTotalWithHostServiceFee
+    convertedDiscount
+    }
+}

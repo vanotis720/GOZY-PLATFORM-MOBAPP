@@ -1,0 +1,12 @@
+query validatePromoCode($code: String!) {
+    validatePromoCode(code: $code) {
+        status
+        errorMessage
+        result {
+            id
+            code
+            promoValue
+            deductionType
+        }
+    }
+}

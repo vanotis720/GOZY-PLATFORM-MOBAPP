@@ -1,0 +1,31 @@
+# import 'package:gozy/graphql/base_listing_info_fragment.graphql'
+query getExploreListings{
+     getPopularLocations {
+                results {
+                        id
+                        location
+                        locationAddress
+                        image
+                }
+                status
+                errorMessage
+        }
+# MostViewedListing
+  getMostViewedListing {
+    results {
+             id
+            ...viewListingShortFragment
+           }
+   status
+   errorMessage
+  }
+  # Recommend Listing
+  getRecommend {
+     results {
+              id
+            ...viewListingShortFragment
+            }
+    status
+    errorMessage
+  }
+}

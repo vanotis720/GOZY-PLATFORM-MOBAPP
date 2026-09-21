@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="11.695" height="14.3" viewBox="0 0 11.695 14.3">
+    <g id="Icon" transform="translate(-3.1 -1.1)">
+        <path id="Path_32352" data-name="Path 32352" d="M14.343,5.738a.489.489,0,0,0-.488-.488H4.738a.489.489,0,0,0-.488.488v8.791a2.116,2.116,0,0,0,2.116,2.116h5.86a2.116,2.116,0,0,0,2.116-2.116Zm-.977.488v8.3a1.141,1.141,0,0,1-1.14,1.14H6.366a1.141,1.141,0,0,1-1.14-1.14v-8.3Z" transform="translate(-0.349 -1.395)" fill="#5e17eb" stroke="#5e17eb" stroke-width="0.3" fill-rule="evenodd"/>
+        <path id="Path_32353" data-name="Path 32353" d="M13.1,4.831a.489.489,0,0,0,.488-.488v-1.3A1.79,1.79,0,0,0,11.8,1.25H8.541A1.79,1.79,0,0,0,6.75,3.041v1.3a.489.489,0,0,0,.488.488Zm-.488-.977H7.727V3.041a.814.814,0,0,1,.814-.814H11.8a.814.814,0,0,1,.814.814Z" transform="translate(-1.221)" fill="#5e17eb" stroke="#5e17eb" stroke-width="0.3" fill-rule="evenodd"/>
+        <path id="Path_32354" data-name="Path 32354" d="M14.157,5.25H3.738a.488.488,0,1,0,0,.977H14.157a.488.488,0,0,0,0-.977Z" transform="translate(0 -1.395)" fill="#5e17eb" stroke="#5e17eb" stroke-width="0.3" fill-rule="evenodd"/>
+        <path id="Path_32355" data-name="Path 32355" d="M8.75,10.238V14.8a.488.488,0,1,0,.977,0V10.238a.488.488,0,0,0-.977,0Z" transform="translate(-1.919 -2.965)" fill="#5e17eb" stroke="#5e17eb" stroke-width="0.3" fill-rule="evenodd"/>
+        <path id="Path_32356" data-name="Path 32356" d="M13.75,10.238V14.8a.488.488,0,1,0,.977,0V10.238a.488.488,0,0,0-.977,0Z" transform="translate(-3.663 -2.965)" fill="#5e17eb" stroke="#5e17eb" stroke-width="0.3" fill-rule="evenodd"/>
+    </g>
+</svg>

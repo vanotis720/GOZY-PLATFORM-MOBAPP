@@ -1,0 +1,27 @@
+# import 'package:gozy/graphql/user_verified_info_fragment.graphql'
+
+fragment userProfileFragment on userProfile {
+  id: userId
+  __typename
+  userData{
+  id
+    email
+    userBanStatus
+    gender
+  }
+  userVerification{
+   ...userVerifiedInfoFragment
+  }
+  reviewsCount
+  profileId
+  firstName
+  lastName
+  displayName
+  dateOfBirth
+  picture
+  location
+  phoneNumber
+  fullPhoneNumber
+  info
+  createdAt
+}

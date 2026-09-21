@@ -1,0 +1,122 @@
+# import 'package:gozy/graphql/reviews_fragment.graphql'
+# import 'package:gozy/graphql/user_profile_fragment.graphql'
+
+query getUserReviews($currentPage: Int, $ownerType: String,$searchKey: String, $reviewType: String) {
+    getUserReviews(currentPage: $currentPage, ownerType: $ownerType,searchKey: $searchKey, reviewType: $reviewType
+    ) {
+        status
+        errorMessage
+        count
+        currentPage
+        ownerType
+        results {
+         ...reviewsFragment
+        }
+    }
+}
+
+query userReviews($ownerType: String, $currentPage: Int, $profileId: Int) {
+  userReviews(ownerType: $ownerType, currentPage: $currentPage, profileId: $profileId) {
+        status
+        count
+        currentPage
+        ownerType
+        errorMessage
+        results {
+         ...reviewsFragment
+        }
+    }
+}
+
+query getPropertyReviews($currentPage: Int!, $listId: Int!) {
+    getPropertyReviews(currentPage: $currentPage, listId: $listId) {
+            status
+              errorMessage
+              count
+              currentPage
+              ownerType
+              results {
+               ...reviewsFragment
+              }
+    }
+}
+
+
+query getPendingUserReviews($currentPage: Int) {
+    getPendingUserReviews(currentPage: $currentPage) {
+        status
+        errorMessage
+        count
+        currentPage
+        results {
+            id
+            listId
+            hostId
+            guestId
+            listTitle
+            listData{
+                id
+                title
+            }
+            threadData{
+                id
+                reservationId
+            }
+            hostData {
+            ...userProfileFragment
+            }
+            guestData {
+                ...userProfileFragment
+            }
+        }
+    }
+}
+
+
+query getPendingUserReview($reservationId: Int!) {
+    getPendingUserReview(reservationId: $reservationId) {
+        status
+        errorMessage
+        result {
+            id
+            listId
+            guestId
+            hostId
+            listTitle
+            listData {
+                id
+                title
+                city
+                state
+                country
+                transmission
+                carType
+                dynamicCarType{
+                    ar
+                    en
+                    es
+                    fr
+                    it
+                    pt
+                }
+                odometer
+                reviewsCount
+                reviewsStarRating
+                coverPhoto
+                listPhotoName
+                listPhotos {
+                    id
+                    name
+                }
+            }
+        }
+    }
+}
+
+
+mutation writeUserReview($reservationId: Int!, $listId: Int!, $reviewContent: String!, $rating: Float!, $receiverId: String!) {
+    writeUserReview(reservationId: $reservationId, listId: $listId, reviewContent: $reviewContent, rating: $rating, receiverId: $receiverId) {
+        status
+        errorMessage
+    }
+}

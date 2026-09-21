@@ -1,0 +1,21 @@
+query getLayoutSettings {
+    getLayoutSettings {
+        status
+        result {
+            theme {
+                id
+                name
+                themeType
+                orderType
+                isEnable
+            }
+            explore {
+                id
+                name
+                themeType
+                orderType
+                isEnable
+            }
+        }
+    }
+}

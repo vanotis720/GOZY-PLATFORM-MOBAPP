@@ -1,0 +1,24 @@
+name: customization
+description: customization
+version: 1.0.0+1
+
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.0"
+
+dependencies:
+  cli_util:
+  xml:
+  http:
+  http_parser:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints:
+
+
+flutter:

@@ -1,0 +1,96 @@
+# import 'package:gozy/graphql/user_verified_info_fragment.graphql'
+
+fragment reviewsFragment on Reviews {
+   id
+  reservationId
+    listId
+  reviewContent
+     rating
+     privateFeedback
+     yourReviewsCount
+     reviewsCount
+     createdAt
+     updatedAt
+     status
+    userData {
+        userId
+        profileId
+        firstName
+        lastName
+        displayName
+        picture
+        location
+        phoneNumber
+        fullPhoneNumber
+        createdAt
+        reviewsCount
+        dateOfBirth
+        info
+        userVerification{
+            ...userVerifiedInfoFragment
+        }
+    }
+    listData {
+        title
+    }
+     isAdmin
+    response {
+        authorId
+        automated
+        id
+        isAdmin
+        rating
+        createdAt
+        listId
+        parentId
+        privateFeedback
+        reviewContent
+        reservationId
+        userData {
+            userId
+            profileId
+            firstName
+            lastName
+            displayName
+            picture
+            location
+            phoneNumber
+            fullPhoneNumber
+            createdAt
+            reviewsCount
+            dateOfBirth
+            info
+            userVerification{
+                ...userVerifiedInfoFragment
+            }
+        }
+        authorData {
+            userId
+            profileId
+            firstName
+            lastName
+            picture
+            location
+            createdAt
+            reviewsCount
+            info
+            userVerification{
+                ...userVerifiedInfoFragment
+            }
+        }
+    }
+     authorData {
+     	 userId
+         profileId
+         firstName
+           lastName
+           picture
+           location
+           createdAt
+           reviewsCount
+           info
+           userVerification{
+           ...userVerifiedInfoFragment
+           }
+     }
+}

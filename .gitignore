@@ -1,0 +1,42 @@
+# Flutter/Dart generated files
+.dart_tool/
+.packages
+.pub-cache/
+build/
+coverage/
+pubspec_overrides.yaml
+customization/.dart_tool/
+
+# IDE and OS files
+.idea/
+.vscode/
+*.iml
+.DS_Store
+*.DS_Store
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+android/key.properties
+ios/Flutter/AppEnvConfig.xcconfig
+
+# Firebase application configuration
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+ios/firebase_app_id_file.json
+
+# Signing credentials and provisioning files
+*.jks
+*.keystore
+*.p12
+*.mobileprovision
+Apple Certificates/*
+!Apple Certificates/README.md
+Keystore/*
+!Keystore/README.md
+
+# CocoaPods generated files
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/ephemeral/

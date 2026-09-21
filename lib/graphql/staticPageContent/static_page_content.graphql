@@ -1,0 +1,15 @@
+#getStaticPageContent
+query getStaticPageContent($id: Int) {
+    getStaticPageContent(id: $id) {
+        status
+        errorMessage
+        result {
+            id
+            pageName
+            metaTitle
+            metaDescription
+            content
+            createdAt
+        }
+    }
+}

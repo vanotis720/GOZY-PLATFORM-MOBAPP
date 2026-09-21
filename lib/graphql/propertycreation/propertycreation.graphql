@@ -1,0 +1,167 @@
+mutation createListing($listId: Int, $carType: String, $make: String, $model: String, $year: String, $transmission: String, $odometer: String, $personCapacity: Int, $country: String, $street: String, $buildingName: String, $city: String, $state: String, $zipcode: String, $lat: Float, $lng: Float, $isMapTouched: Boolean, $carFeatures: [Int]) {
+    createListing(listId: $listId, carType: $carType, make: $make, model: $model, year: $year, transmission: $transmission, odometer: $odometer, personCapacity: $personCapacity, country: $country, street: $street, buildingName: $buildingName, city: $city, state: $state, zipcode: $zipcode, lat: $lat, lng: $lng, isMapTouched: $isMapTouched, carFeatures: $carFeatures) {
+        id
+        results {
+            carType
+            make
+            model
+            year
+            transmission
+            odometer
+            personCapacity
+            country
+            street
+            buildingName
+            city
+            state
+            zipcode
+            lat
+            lng
+            isMapTouched
+            carFeatures
+        }
+        status
+        errorMessage
+        actionType
+    }
+}
+
+mutation UpdateListingStep2 (
+    $id: Int,
+    $description:String,
+    $title:String,
+    $coverPhoto: Int,
+    $dynamicListTitleandDesc: String
+) {
+    updateListingStep2 (
+        id: $id,
+        description:$description,
+        title:$title,
+        coverPhoto: $coverPhoto,
+        dynamicListTitleandDesc: $dynamicListTitleandDesc
+
+    ) {
+        status
+        results {
+            id
+            title
+            description
+            coverPhoto
+        }
+        errorMessage
+    }
+}
+
+#publish listing
+mutation managePublishStatus($listId: Int!, $action: String!) {
+    managePublishStatus(listId: $listId, action: $action) {
+        status
+    errorMessage
+    }
+}
+
+mutation manageListingSteps($listId:String!, $currentStep: Int!) {
+    manageListingSteps: ManageListingSteps (listId:$listId, currentStep: $currentStep) {
+                                 results{
+                                 id
+                                 listId
+                                 step1
+                                 step2
+                                 step3
+                                 listing {
+                                   id
+                                   isReady
+                                   isPublished
+                                   user {
+                                     userBanStatus
+                                   }
+                                 }
+                                 }
+                                 status
+                                 errorMessage
+                               }
+                             }
+
+
+#UpdateStep3
+mutation updateListingStep3(
+    $id: Int,
+    $carRules: [Int],
+    $bookingNoticeTime:String,
+    $checkInStart:String,
+    $checkInEnd:String,
+    $maxDaysNotice:String,
+    $minDay:Int,
+    $maxDay:Int,
+    $basePrice:Float,
+    $delivery:Float,
+    $currency:String,
+    $weeklyDiscount:Float,
+    $monthlyDiscount:Float,
+    $blockedDates: [String],
+    $bookingType: String!,
+    $cancellationPolicy: Int,
+    $securityDeposit: Float
+)
+ {
+  updateListingStep3(
+        id: $id,
+        carRules: $carRules,
+        bookingNoticeTime: $bookingNoticeTime,
+        checkInStart: $checkInStart,
+        checkInEnd: $checkInEnd,
+        maxDaysNotice: $maxDaysNotice,
+        minDay: $minDay,
+        maxDay: $maxDay,
+        basePrice: $basePrice,
+        delivery: $delivery,
+        currency: $currency,
+        weeklyDiscount: $weeklyDiscount,
+        monthlyDiscount: $monthlyDiscount,
+        blockedDates: $blockedDates,
+        bookingType: $bookingType,
+        cancellationPolicy: $cancellationPolicy,
+        securityDeposit: $securityDeposit
+) {
+    results {
+      id
+      carRules
+      bookingNoticeTime
+      checkInStart
+      checkInEnd
+      maxDaysNotice
+      minDay
+      maxDay
+      basePrice
+      delivery
+      currency
+      weeklyDiscount
+      monthlyDiscount
+      blockedDates
+      bookingType
+      cancellationPolicy
+      securityDeposit
+    }
+    status
+    errorMessage
+    actionType
+  }
+}
+
+
+
+
+
+
+#DeletePhoto
+mutation RemoveListPhotos(
+                             $listId: Int!,
+                             $name: String,
+                         ) {
+    removeListPhotos : RemoveListPhotos (
+                                 listId: $listId,
+                                 name: $name) {
+                                    status
+                                   errorMessage
+                             }
+                         }

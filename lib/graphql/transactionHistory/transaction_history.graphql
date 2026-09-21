@@ -1,0 +1,64 @@
+# import 'package:gozy/graphql/reservation_fragment.graphql'
+
+query getTransactionHistory(
+    $mode: String
+    $payoutId: Int
+    $listId: Int
+    $currentPage: Int
+    $searchKey: String
+    $convertCurrency: String
+) {
+    getTransactionHistory(
+        mode: $mode
+        payoutId: $payoutId
+        listId: $listId
+        currentPage: $currentPage
+        searchKey: $searchKey
+        convertCurrency: $convertCurrency
+    ) {
+        status
+        errorMessage
+        count
+        totalCount
+        paidOut
+        pendingPayouts
+        reservationData {
+            ...reservationFragment
+        }
+        totalData {
+            id
+            hostServiceFeeType
+            total
+            hostServiceFee
+            currency
+            dynamicListTitle {
+                pt
+                it
+                fr
+                es
+                en
+                ar
+            }
+            cancellationDetails {
+                id
+                reservationId
+                payoutToHost
+                refundToGuest
+                guestServiceFee
+                hostServiceFee
+                total
+                currency
+            }
+            hostTransaction {
+                id
+                amount
+                currency
+                createdAt
+            }
+        }
+        totalCount
+        pendingPayouts
+        count
+        paidOut
+    }
+}

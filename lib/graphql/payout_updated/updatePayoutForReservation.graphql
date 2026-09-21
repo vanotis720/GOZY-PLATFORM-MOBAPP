@@ -1,0 +1,9 @@
+mutation updatePayoutForReservation($payoutId: Int!, $reservationId: Int!) {
+    updatePayoutForReservation(
+        payoutId: $payoutId
+        reservationId: $reservationId
+    ) {
+        status
+        errorMessage
+    }
+}

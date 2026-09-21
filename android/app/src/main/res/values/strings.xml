@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="APP_NAME">Gozy</string>
+
+<string name="DEEPLINK_DOMAIN">www.gozyapp.com</string>
+
+<string name="GRAPHQL_DOMAIN">https://www.gozyapp.com/api</string>
+
+<string name="UPLOAD_URL">https://www.gozyapp.com</string>
+<string name="SECURE_API_KEY">JjQI:gHf+^=D</string>
+
+
+<string name="APP_VERSION">1.0.1</string>
+
+<string name="BUILD_VERSION">5</string>
+
+<string name="APP_COLOR_PRIMARY">0B0E26</string>
+
+<string name="APP_COLOR_SECONDARY">5e17eb</string>
+
+<string name="PACKAGE_NAME">com.gozy.app</string>
+</resources>

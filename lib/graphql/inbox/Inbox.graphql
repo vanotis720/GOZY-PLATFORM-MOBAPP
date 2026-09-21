@@ -1,0 +1,101 @@
+# import 'package:gozy/graphql/all_thread_fragment.graphql'
+# import 'package:gozy/graphql/user_profile_fragment.graphql'
+
+
+#Inbox List
+query getAllThreads($threadType: String, $threadId: Int, $currentPage: Int) {
+getAllThreads(threadType: $threadType, threadId: $threadId, currentPage: $currentPage) {
+results {
+id
+        ...allThreadsFragment
+}
+count
+        status
+}
+}
+
+# Message unReadCount
+query getUnReadCount{
+  getUnReadCount {
+	results {
+            ownerCount
+            renterCount
+            total
+            userBanStatus
+            isUnReadMessage
+            messageCount
+	}
+	status
+	errorMessage
+  }
+}
+
+# Message
+query getThreads($threadType: String, $threadId: Int, $currentPage: Int) {
+getThreads(threadType
+: $threadType, threadId: $threadId, currentPage: $currentPage) {
+status
+        errorMessage
+results {
+getThreadCount
+        listId
+
+        threadItems{
+        ...threadItemsFragment
+}
+guestProfile {
+...userProfileFragment
+}
+hostProfile {
+...userProfileFragment
+}
+threadItemForType{
+...threadItemsFragment
+}
+}
+}
+}
+
+#sendMessage
+mutation sendMessage($threadId: Int!, $content: String, $type: String, $startDate: String, $endDate: String, $personCapacity: Int, $startTime: Float, $endTime: Float) {
+sendMessage(threadId: $threadId, content: $content, type: $type, startDate: $startDate, endDate: $endDate, personCapacity: $personCapacity, startTime: $startTime, endTime: $endTime) {
+status
+        errorMessage
+results {
+id
+sentBy
+content
+type
+reservationId
+startDate
+endDate
+startTime
+endTime
+personCapacity
+createdAt
+}
+}
+}
+
+
+
+#readMessage
+mutation readMessage($threadId: Int!) {
+readMessage(threadId: $threadId) {
+status
+        message
+errorMessage
+}
+}
+
+# NewMessage
+query getUnReadThreadCount($threadId: Int){
+getUnReadThreadCount (threadId: $threadId){
+results {
+isUnReadMessage
+        messageCount
+}
+status
+        errorMessage
+}
+}

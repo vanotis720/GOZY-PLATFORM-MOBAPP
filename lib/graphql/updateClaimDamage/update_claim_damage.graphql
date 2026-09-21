@@ -1,0 +1,6 @@
+mutation updateClaim($reservationId: Int!, $claimAmount: Float!, $claimReason: String!, $claimImages: [String],$currency:String!){
+    updateClaim(reservationId: $reservationId, claimAmount: $claimAmount, claimReason: $claimReason, claimImages: $claimImages,currency:$currency){
+        status
+        errorMessage
+    }
+}

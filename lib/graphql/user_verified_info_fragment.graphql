@@ -1,0 +1,10 @@
+fragment userVerifiedInfoFragment on UserVerifiedInfo {
+
+  userId
+  isEmailConfirmed
+  isFacebookConnected
+  isGoogleConnected
+  isIdVerification
+  isPhoneVerified
+
+}

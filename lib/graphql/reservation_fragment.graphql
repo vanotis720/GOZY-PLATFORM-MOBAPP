@@ -1,0 +1,116 @@
+# import 'package:gozy/graphql/base_listing_info_fragment.graphql'
+# import 'package:gozy/graphql/user_profile_fragment.graphql'
+# import 'package:gozy/graphql/thread_item_fragment.graphql'
+# import 'package:gozy/graphql/listing_data_fragment.graphql'
+# import 'package:gozy/graphql/listing_user_fragment.graphql'
+
+fragment reservationFragment on Reservation {
+        id
+        listId
+        days
+        listTitle
+        cancellation {
+            ... cancellationDataFragment
+        }
+        listData {
+            id
+            country
+            street
+            city
+            state
+            zipcode
+             ...viewListingShortFragment
+            listingData {
+             ...listingDataFragment
+            }
+            user {
+              ...listingUserFragment
+            }
+        }
+        hostTransaction {
+            createdAt
+            id
+            payoutId
+            payoutEmail
+            amount
+            currency
+            createdAt
+        }
+        hostData {
+            ...userProfileFragment
+        }
+        guestData {
+            ...userProfileFragment
+        }
+
+        checkIn
+        checkOut
+        guests
+        message
+        basePrice
+        delivery
+        currency
+        discount
+        discountType
+        guestServiceFee
+        hostServiceFee
+        total
+        promoCode
+        promoCodeDescription
+        promoCodeType
+        promoId
+        promoDiscount
+        totalWithGuestServiceFee
+        totalWithoutSecurityFee
+        isSpecialPriceAssigned
+        confirmationCode
+        reservationState
+        paymentState
+        payoutId
+        isCancelEnabled
+        createdAt
+        updatedAt
+        count
+        cardToken
+        threadData {
+            ...threadItemsFragment
+        }
+        cancellationPolicy
+        isSpecialPriceAverage
+        dayDifference
+        startTime
+        endTime
+        licenseNumber
+        firstName
+        middleName
+        lastName
+        dateOfBirth
+        countryLabel
+        securityDeposit
+        cancellationStatus
+        claimStatus
+        claimAmount
+        claimPayout
+        claimRefund
+        claimReason
+        claimImages
+            cancellationDetails {
+                payoutToHost
+                createdAt
+                currency
+            }
+        claimRefundedAt
+        actualEarnings
+        isClaimCancelStatus
+        hostServiceFeeType
+        hostServiceFeeValue
+        bookingType
+    completedTotal {
+        totalAmount
+        currency
+    }
+    futureTransactionTotal {
+        totalAmount
+        currency
+    }
+}

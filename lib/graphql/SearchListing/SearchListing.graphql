@@ -1,0 +1,14 @@
+# import 'package:gozy/graphql/base_listing_info_fragment.graphql'
+
+query SearchListing ($personCapacity: Int, $currentPage: Int, $dates: String, $lat: Float, $lng: Float, $carFeatures: [Int], $carType: [Int], $carRules: [Int], $priceRange: [Int], $address: String,
+$make: Int, $transmission: Int, $bookingType: String, $currency: String) {
+searchListing:SearchListing(personCapacity: $personCapacity, currentPage: $currentPage, dates: $dates, lat: $lat, lng: $lng, carFeatures: $carFeatures, carType: $carType, carRules: $carRules, priceRange: $priceRange, address: $address, make: $make, transmission: $transmission, bookingType: $bookingType, currency: $currency) {
+        count
+        results {
+          id
+          ...viewListingShortFragment
+        }
+        status
+        errorMessage
+    }
+}

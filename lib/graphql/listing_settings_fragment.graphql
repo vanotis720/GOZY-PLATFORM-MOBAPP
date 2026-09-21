@@ -1,0 +1,58 @@
+fragment listingSettingsFragment on listingSettings{
+        id
+        typeId
+        itemName
+        otherItemName
+        maximum
+        minimum
+        startValue
+        endValue
+        isEnable
+        makeType
+        dynamicItemName {
+            ar
+            en
+            es
+            fr
+            it
+            pt
+        }
+
+}
+fragment cancellationFragment on Cancellation{
+        id
+        policyName
+        policyContent
+        priorDays
+        accommodationPriorCheckIn
+        accommodationBeforeCheckIn
+        accommodationDuringCheckIn
+        guestFeePriorCheckIn
+        guestFeeBeforeCheckIn
+        guestFeeDuringCheckIn
+        hostFeePriorCheckIn
+        hostFeeBeforeCheckIn
+        hostFeeDuringCheckIn
+        isEnable
+        status
+}
+
+fragment availabilityFragment on availabilityWindowType {
+        itemValue
+        itemName
+}
+
+ fragment listingSettingsTypesFragment on listingSettingsTypes{
+        id
+        typeName
+        typeLabel
+        step
+        fieldType
+        isMultiValue
+        isEnable
+        status
+        listSettings{
+    ... listingSettingsFragment
+}
+
+}

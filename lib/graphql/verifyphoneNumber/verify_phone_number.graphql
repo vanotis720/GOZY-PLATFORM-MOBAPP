@@ -1,0 +1,5 @@
+mutation VerifyPhoneNumber($verificationCode: Int!) {
+    VerifyPhoneNumber(verificationCode: $verificationCode) {
+        status
+    }
+}

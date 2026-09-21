@@ -1,0 +1,35 @@
+query getPurchaseServicePlan($id: Int!) {
+    getPurchaseServicePlan(id: $id) {
+        status
+        errorMessage
+        result {
+            id
+            userId
+            price
+            currency
+            userType
+            startDate
+            endDate
+            serviceFee
+            duration
+            servicePlanId
+            servicePlanName
+            serviceDescription
+            serviceAIFeature
+            paymentType
+            servicePlanStatus
+            paymentState
+            features {
+                serviceFee
+                serviceAIFeature
+            }
+            PurchaserData {
+                createdAt
+                firstName
+                lastName
+            }
+            createdAt
+            updatedAt
+        }
+    }
+}

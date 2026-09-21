@@ -1,0 +1,7 @@
+# import 'package:gozy/graphql/reservation_payment_fragment.graphql'
+
+mutation confirmReservation($reservationId: Int!, $paymentIntentId: String!, $paymentType: Int!) {
+    confirmReservation(reservationId: $reservationId, paymentIntentId: $paymentIntentId, paymentType: $paymentType) {
+   ...reservationPaymentFragment
+    }
+}

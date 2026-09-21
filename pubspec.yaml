@@ -1,0 +1,102 @@
+name: gozy
+description: A Gozy Flutter project
+
+version: 1.0.1
+flutter_sdk: 3.41.2
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_svg: 2.2.3
+  intl: 0.20.2
+  get: 4.7.3
+  get_secure_storage: 1.0.5
+  ferry: 0.16.1+2
+  internet_connection_checker_plus: 2.9.1+2
+  firebase_messaging: 16.1.1
+  firebase_crashlytics: 5.0.7
+  cached_network_image: 3.4.1
+  flutter_local_notifications: 20.1.0
+  permission_handler: 12.0.1
+  flutter_widget_from_html_core: 0.17.0
+  url_launcher: 6.3.2
+  lottie: 3.3.2
+  gql_http_link: 1.2.0
+  google_sign_in: 7.2.0
+  sign_in_with_apple: 6.1.4
+  firebase_auth: 6.1.4
+  printing: 5.14.2
+  dotlottie_loader: 0.0.5
+  app_links: 7.0.0
+  google_maps_flutter: 2.14.0
+  share_plus: 12.0.1
+  flutter_stripe: 12.6.0
+  webview_flutter: 4.13.1
+  file_picker: 10.3.10
+  flutter_image_compress: 2.4.0
+  restart_app: 1.7.2
+  customization:
+   path: ./customization/
+  camera: 0.12.0
+  camera_android: 0.10.10+15
+  image_cropper: 11.0.0
+  socket_io_client: 3.1.2
+  image: 4.5.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  analyzer:
+
+
+  flutter_lints: 6.0.0
+  ferry_generator: 0.12.0+2
+  build_runner:
+
+flutter:
+  uses-material-design: true
+  assets:
+    - res/drawable/
+    - res/drawable/theme_1/
+    - res/drawable/theme_1/home/
+    - res/drawable/theme_1/viewcars/
+    - res/drawable/theme_1/profileicons/
+    - res/drawable/theme_1/delete_account/
+    - res/drawable/theme_2/
+    - res/drawable/theme_2/get_started/
+    - res/drawable/theme_2/profileicons/
+    - res/drawable/theme_2/delete_account/
+    - res/drawable/theme_3/profileicons/
+    - res/drawable/theme_2/settingsicon/
+    - res/drawable/theme_3/
+    - res/drawable/theme_3/get_started/
+    - res/drawable/theme_3/view_car/
+    - res/drawable/theme_3/delete_account/
+    - res/drawable/theme_4/
+    - res/drawable/theme_4/settingsicon/
+    - res/drawable/theme_4/delete_account/
+    - res/drawable/theme_4/profile/
+    - res/assets/
+    - res/drawable/pay_with_card_icons/
+    - res/drawable/flags/
+    - res/font/
+    - res/loader/
+    - .env
+    - res/
+
+
+  fonts:
+    - family: outfit
+      fonts:
+        - asset: res/font/outfitregular.ttf
+          weight: 400
+        - asset: res/font/outfitmedium.ttf
+          weight: 500
+        - asset: res/font/outfitsemibold.ttf
+          weight: 600
+        - asset: res/font/outfitbold.ttf
+          weight: 700

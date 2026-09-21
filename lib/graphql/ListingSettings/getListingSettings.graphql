@@ -1,0 +1,125 @@
+# import 'package:gozy/graphql/listing_settings_fragment.graphql'
+query getListingSettings {
+    getListingSettings {
+        status
+        errorMessage
+        results {
+            id
+            minNight {
+                isEnable
+                listSettings {
+                    isEnable
+                    startValue
+                    endValue
+                    itemName
+                    otherItemName
+                }
+            }
+            maxNight {
+                isEnable
+                listSettings {
+                    isEnable
+                    startValue
+                    endValue
+                    itemName
+                    otherItemName
+                }
+            }
+            carRules {
+                ...listingSettingsTypesFragment
+            }
+            carFeatures {
+                ...listingSettingsTypesFragment
+            }
+            guestRequirements {
+                ...listingSettingsTypesFragment
+            }
+            reviewGuestBook {
+                ...listingSettingsTypesFragment
+            }
+            carType {
+                ...listingSettingsTypesFragment
+            }
+            year {
+                ...listingSettingsTypesFragment
+            }
+            odometer {
+                ...listingSettingsTypesFragment
+            }
+            cancellationPolicy {
+                ...cancellationFragment
+            }
+            availabilityWindow{
+                ...availabilityFragment
+            }
+        }
+    }
+}
+
+query getStep1ListingDetails($listId:Int!, $preview: Boolean) {
+    getListingDetails (listId:$listId, preview: $preview) {
+        status
+        errorMessage
+        results {
+            id
+            userId
+            carType
+            make
+            makeId
+            model
+            year
+            odometer
+            country
+            street
+            buildingName
+            city
+            state
+            zipcode
+            lat
+            lng
+            isMapTouched
+            transmission
+            personCapacity
+            user {
+                email
+                userBanStatus
+                profile{
+                    firstName
+                    lastName
+                }
+            }
+            carFeatures {
+                id
+                itemName
+                dynamicItemName {
+                    ar
+                    en
+                    es
+                    fr
+                    it
+                    pt
+                }
+            }
+            settingsData {
+                id
+                settingsId
+                listsettings {
+                    id
+                    itemName
+                    dynamicItemName {
+                        ar
+                        en
+                        es
+                        fr
+                        it
+                        pt
+                    }
+                    settingsType {
+                        id
+                        typeName
+                    }
+                }
+            }
+        }
+    }
+}

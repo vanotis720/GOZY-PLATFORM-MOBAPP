@@ -1,0 +1,51 @@
+query getSecureSiteSettings($settingsType: String, $securityKey: String!, $appType: String, $isFormDropDown:Boolean) {
+    getSecureSiteSettings(
+        settingsType: $settingsType
+        securityKey: $securityKey
+        appType: $appType
+        isFromDropdown:$isFormDropDown
+    ) {
+        status
+        errorMessage
+        results {
+            id
+            title
+            name
+            value
+            type
+            status
+        }
+        mobileLanguage {
+            id
+            language
+            languageCode
+            isActive
+            isEnable
+            jsonFile
+        }
+        travelReasons {
+            id
+            label
+            value
+        }
+        targetedGuests {
+            id
+            label
+            value
+        }
+    }
+}
+
+query getImageBanner {
+ 	getImageBanner {
+            result {
+
+               title
+                description
+                buttonLabel
+                image
+            }
+            status
+            errorMessage
+        }
+ }

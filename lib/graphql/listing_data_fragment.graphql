@@ -1,0 +1,45 @@
+fragment listingDataFragment on listingData{
+ bookingNoticeTime
+  checkInStart
+  checkInEnd
+  maxDaysNotice
+  minDay
+  maxDay
+  maxDayItemLabel
+  maxDayOtherItemLabel
+  minDayItemLabel
+  minDayOtherItemLabel
+  basePrice
+  delivery
+  currency
+  weeklyDiscount
+  monthlyDiscount
+  cancellationPolicy
+  securityDeposit
+  cancellation {
+   ... cancellationDataFragment
+  }
+}
+
+fragment cancellationDataFragment on Cancellation{
+ id
+  policyName
+  policyContent
+  priorDays
+    subTitle
+    subContent
+  	content1
+  	content2
+  	content3
+  accommodationPriorCheckIn
+  accommodationBeforeCheckIn
+  accommodationDuringCheckIn
+  guestFeePriorCheckIn
+  guestFeeBeforeCheckIn
+  guestFeeDuringCheckIn
+  hostFeePriorCheckIn
+  hostFeeBeforeCheckIn
+  hostFeeDuringCheckIn
+  isEnable
+  status
+}

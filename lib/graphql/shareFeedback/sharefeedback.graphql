@@ -1,0 +1,6 @@
+mutation sendUserFeedback ($type: String, $message: String){
+    userFeedback(type: $type, message: $message){
+        status
+        errorMessage
+    }
+}

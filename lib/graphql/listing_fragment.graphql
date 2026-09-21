@@ -1,0 +1,44 @@
+# import 'package:gozy/graphql/base_listing_info_fragment.graphql'
+# import 'package:gozy/graphql/listing_data_fragment.graphql'
+# import 'package:gozy/graphql/listing_user_fragment.graphql'
+
+fragment viewListingDetailsFragment on ShowListing {
+         id
+       ...viewListingShortFragment
+         description
+        country
+        street
+        city
+        state
+        zipcode
+        user {
+          ...listingUserFragment
+         }
+         make
+         makeId
+         model
+         buildingName
+         year
+         odometer
+         listingData {
+         ...listingDataFragment
+         }
+         blockedDates {
+             id
+             blockedDates
+             reservationId
+             listId
+             calendarStatus
+             isSpecialPrice
+        }
+        carType
+        isPublished
+        isReady
+        lastUpdatedAt
+        createdAt
+        listingSteps {
+            step1
+            step2
+            step3
+        }
+}

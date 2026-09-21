@@ -1,0 +1,125 @@
+# import 'package:gozy/graphql/reviews_fragment.graphql'
+# import 'package:gozy/graphql/user_profile_fragment.graphql'
+
+mutation userUpdate($userId: String!, $fieldName: String!, $fieldValue: String, $deviceType: String!, $deviceId: String!) {
+  userUpdate(userId: $userId, fieldName: $fieldName, fieldValue: $fieldValue, deviceType: $deviceType, deviceId: $deviceId) {
+    status
+    userToken
+    errorMessage
+  }
+}
+
+query SendConfirmEmail{
+  ResendConfirmEmail {
+    results{
+      id
+      userId
+      profile {
+        firstName
+        userData {
+          email
+        }
+      }
+      token
+      email
+      status
+    }
+    status
+    errorMessage
+
+  }
+}
+
+mutation CodeVerification(
+  $token: String!,
+  $email: String!,
+){
+  EmailVerification(
+    token: $token,
+    email: $email
+  ) {
+    status
+    errorMessage
+  }
+}
+
+mutation SocialLoginVerify(
+  $verificationType: String!,
+  $actionType: String!) {
+  SocialVerification(
+    verificationType: $verificationType,
+    actionType: $actionType ) {
+    status
+    errorMessage
+  }
+}
+
+query showUserProfile($profileId: Int, $isUser: Boolean) {
+  showUserProfile(profileId: $profileId, isUser: $isUser) {
+    results {
+     userData {
+     ...userProfileFragment
+     }
+      reviews {
+      ...reviewsFragment
+      }
+    }
+    status
+    errorMessage
+  }
+}
+
+query userAccount {
+  userAccount {
+    result {
+      userId
+      profileId
+      firstName
+      lastName
+      displayName
+      gender
+      dateOfBirth
+      iosDOB
+      email
+      userBanStatus
+      phoneNumber
+      preferredLanguage
+      preferredLanguageName
+      preferredCurrency
+      location
+      info
+      createdAt
+      userDeletedAt
+      status
+      picture
+      verification{
+        id
+        userId
+        isEmailConfirmed
+        isFacebookConnected
+        isGoogleConnected
+        isIdVerification
+        isPhoneVerified
+        status
+      }
+      userData{
+        userToken
+        forgotLink
+        type
+        createListingCount
+        overallRating
+      }
+      country
+      verificationCode
+      countryCode
+      errorMessage
+      loginUserType
+      isAddedList
+      phoneNumberStatus
+      renterServicePlanAIFeatureStatus
+      ownerServicePlanAIFeatureStatus
+    }
+    status
+    errorMessage
+  }
+}

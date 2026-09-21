@@ -1,0 +1,34 @@
+query getAllUserServicePlan($userType: String, $currentPage: Int, $searchKey: String) {
+  getAllUserServicePlan(
+    userType: $userType
+    currentPage: $currentPage
+    searchKey: $searchKey
+  ) {
+    status
+    errorMessage
+    count
+    results {
+      id
+      userType
+      planName
+      duration
+      currency
+      description
+      price
+      aiFeaturesStatus
+      serviceFee
+      purchaseStatus
+      servicePlanStartDate
+      servicePlanEndDate
+      serviceType
+      isEnable
+      createdAt
+      updatedAt
+      mediaImage
+      PurchaseData {
+        id
+        servicePlanId
+      }
+    }
+  }
+}

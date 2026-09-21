@@ -1,0 +1,38 @@
+query getAllPurchaseServicePlan($currentPage: Int, $searchKey: String, $userType: String) {
+    getAllPurchaseServicePlan(
+        currentPage: $currentPage
+        searchKey: $searchKey
+        userType: $userType
+    ) {
+        status
+        errorMessage
+        count
+        results {
+            id
+            userId
+            price
+            currency
+            userType
+            startDate
+            endDate
+            duration
+            servicePlanId
+            serviceFee
+            servicePlanName
+            serviceDescription
+            serviceAIFeature
+            servicePlanStatus
+            paymentType
+            paymentState
+            servicePlanData {
+                mediaImage
+            }
+            PurchaserData {
+                firstName
+                lastName
+            }
+            createdAt
+            updatedAt
+        }
+    }
+}
